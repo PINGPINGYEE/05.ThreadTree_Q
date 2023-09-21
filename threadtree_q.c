@@ -19,7 +19,7 @@ TreeNode* find_successor(TreeNode* p)
 	return q;
 }
 
-// ÁßÀ§ ¼øÈ¸
+// ì¤‘ìœ„ ìˆœíšŒ
 void inorder_thread(TreeNode* t)
 {
 	TreeNode* q = t;
@@ -32,7 +32,7 @@ void inorder_thread(TreeNode* t)
 
 
 
-// ¼±¾ğ
+// ì„ ì–¸
 TreeNode n1 = { 4, NULL, NULL, 1 };
 TreeNode n3 = { 5, NULL, NULL, 1 };
 TreeNode n2 = { 3, &n1, &n3, 0 };
@@ -46,7 +46,7 @@ TreeNode n10 = { 7, &n9, &n8, 0 };
 TreeNode n11 = { 1, &n5, &n10, 0 };
 TreeNode* ThreadTree = &n11;
 
-// ºÎ¸ğ Ã£´Â ÇÔ¼ö
+// ë¶€ëª¨ ì°¾ëŠ” í•¨ìˆ˜
 TreeNode* parent(TreeNode* child) {
 	TreeNode* q = child->right;
 	TreeNode* qptr = q->left;
@@ -68,7 +68,6 @@ TreeNode* parent(TreeNode* child) {
 	}
 
 	else {
-		printf("error");
 		exit(1);
 	}
 }
@@ -82,17 +81,17 @@ int main()
 	n4.right = &n11;
 	n6.right = &n8;
 	n9.right = &n10;
-	// ÁßÀ§¼øÈ¸
-	printf("1. ÁßÀ§ ¼øÈ¸ °á°ú\n");
+	// ì¤‘ìœ„ìˆœíšŒ
+	printf("1. ì¤‘ìœ„ ìˆœíšŒ ê²°ê³¼\n");
 	inorder_thread(ThreadTree);
 
-	// ºÎ¸ğ Ã£´Â ¼øÈ¸
+	// ë¶€ëª¨ ì°¾ëŠ” ìˆœíšŒ
 	int value4 = parent(&n1)->data;
 	int value5 = parent(&n3)->data;
 	int value6 = parent(&n4)->data;
-	printf("\n\nNode 4ÀÇ ºÎ¸ğ: %d", value4);
-	printf("\nNode 5ÀÇ ºÎ¸ğ: %d", value5);
-	printf("\nNode 6ÀÇ ºÎ¸ğ: %d", value6);
+	printf("\n\n2. Node 4ì˜ ë¶€ëª¨: %d", value4);
+	printf("\n3. Node 5ì˜ ë¶€ëª¨: %d", value5);
+	printf("\n4. Node 6ì˜ ë¶€ëª¨: %d", value6);
 	printf("\n");
 	return 0;
 }
